@@ -10,8 +10,9 @@ import './Item.css'
 
 function Item(props) {
     console.log(props)
+    
   return (
-    <Card sx={{ maxWidth: 345, m: "1em"}}>
+    <Card sx={{ maxWidth: 400, m: "1em"}}>
       <CardMedia
         component="img"
         height="140"
@@ -27,7 +28,7 @@ function Item(props) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Learn More</Button>
+        <Button onClick={props.fetchSingleItem} size="small">Learn More</Button>
       </CardActions>
     </Card>
   );
