@@ -8,22 +8,22 @@ import Typography from '@mui/material/Typography';
 
 
 function ItemDetailed(props) {
-    console.log(props)
-    
+  console.log(props)
+
   return (
-    <Card elevation="6" sx={{ maxWidth: "80vw", minWidth: 300, mx: "auto", my: "1em"}}>
+    <Card elevation="6" sx={{ maxWidth: "80vw", minWidth: 300, mx: "auto", my: "1em" }}>
       <CardMedia
         component="img"
         height="140"
-        image="*link goes here"
+        image={props.item.image}
         alt="title"// {props.title}
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          dummy title {/* {props.title} */}
+          {props.item.title}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-            dummy description {/*{props.description*/}
+          {props.item.description}
         </Typography>
       </CardContent>
     </Card>

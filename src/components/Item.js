@@ -28,7 +28,7 @@ function Item(props) {
         </Typography>
       </CardContent>
       <CardActions sx={{justifyContent: "center"}}>
-        <Button onClick={props.fetchSingleItem} size="small">Learn More</Button>
+        <Button onClick={props.fetchSingleItem} data-id={props.id} size="small">Learn More</Button>
       </CardActions>
     </Card>
   );

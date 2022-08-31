@@ -1,5 +1,5 @@
 
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import './App.css';
 import ItemsList from './components/ItemsList'
 import Item from './components/Item'
@@ -9,7 +9,7 @@ import Button from '@mui/material/Button';
 function App() {
   const [items, setItems] = useState([])
   const [showItem, setShowItem] = useState(false)
-  
+  const [detailedItem, setDetailedItem] = useState({})
   async function fetchItems() {
     reset()
     try {
@@ -24,7 +24,18 @@ function App() {
     }
   }
 
-  async function fetchSingleItem() {
+  async function fetchSingleItem(e) {
+    try {
+      const id = e.currentTarget.dataset.id
+      const response = await fetch(`http://localhost:3001/items/${id}`, {
+        header: 'Access-Control-Allow-Origin: *'
+      })
+      const data = await response.json()
+      console.log(data)
+      setDetailedItem(data)
+    } catch (err) {
+      console.log("failed to fetch items", err)
+    }
     console.log("fetch item")
     setShowItem(true)
   }
@@ -41,9 +52,9 @@ function App() {
   return (
     <div className="App">
       {/* showItem will toggle on/off multiple item view vs single*/}
-      {!showItem && <ItemsList data={items} fetchSingleItem={fetchSingleItem}/>}
+      {!showItem && <ItemsList data={items} fetchSingleItem={fetchSingleItem} />}
       {/* pass props into item from fetchSingleItem func */}
-      {showItem && <ItemDetailed/>}
+      {showItem && <ItemDetailed item={detailedItem} />}
       {showItem && <Button onClick={reset} color="primary" variant="contained" size="sizeLarge">Go back</Button>}
     </div>
   );
