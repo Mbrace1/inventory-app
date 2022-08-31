@@ -11,7 +11,7 @@ function ItemDetailed(props) {
     console.log(props)
     
   return (
-    <Card elevation="6" sx={{ maxWidth: 400, mx: "auto", my: "1em"}}>
+    <Card elevation="6" sx={{ maxWidth: "80vw", minWidth: 300, mx: "auto", my: "1em"}}>
       <CardMedia
         component="img"
         height="140"
