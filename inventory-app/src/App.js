@@ -3,6 +3,8 @@ import React, {useState, useEffect} from 'react'
 import './App.css';
 import ItemsList from './components/ItemsList'
 import Item from './components/Item'
+import ItemDetailed from './components/ItemDetailed'
+import Button from '@mui/material/Button';
 
 function App() {
   const [items, setItems] = useState([])
@@ -11,7 +13,7 @@ function App() {
   async function fetchItems() {
     reset()
     try {
-      const response = await fetch(`api/route/`)
+      const response = await fetch(`http://localhost:3000/route/`)
       const data = await response.json()
       console.log(data)
       // setItems(data)
@@ -39,8 +41,8 @@ function App() {
       {/* showItem will toggle on/off multiple item view vs single*/}
       {!showItem && <ItemsList fetchSingleItem={fetchSingleItem}/>}
       {/* pass props into item from fetchSingleItem func */}
-      {showItem && <Item/>}
-      {showItem && <button onClick={reset}>Go back</button>}
+      {showItem && <ItemDetailed/>}
+      {showItem && <Button onClick={reset} color="primary" variant="contained" size="sizeLarge">Go back</Button>}
     </div>
   );
 }

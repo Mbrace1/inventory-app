@@ -6,32 +6,28 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
-import './Item.css'
 
-function Item(props) {
+function ItemDetailed(props) {
     console.log(props)
     
   return (
-    <Card elevation="6" sx={{ maxWidth: 400, m: "1em"}}>
+    <Card elevation="6" sx={{ maxWidth: 400, mx: "auto", my: "1em"}}>
       <CardMedia
         component="img"
         height="140"
         image="*link goes here"
-        alt={props.title}
+        alt="title"// {props.title}
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          {props.title}
+          dummy title {/* {props.title} */}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-            {props.price}
+            dummy description {/*{props.description*/}
         </Typography>
       </CardContent>
-      <CardActions>
-        <Button onClick={props.fetchSingleItem} size="small">Learn More</Button>
-      </CardActions>
     </Card>
   );
 }
 
-export default Item
+export default ItemDetailed
