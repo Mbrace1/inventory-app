@@ -13,10 +13,12 @@ function App() {
   async function fetchItems() {
     reset()
     try {
-      const response = await fetch(`http://localhost:3000/route/`)
+      const response = await fetch(`http://localhost:3001/items`, {
+        header: 'Access-Control-Allow-Origin: *'
+      })
       const data = await response.json()
       console.log(data)
-      // setItems(data)
+      setItems(data)
     } catch (err) {
       console.log("failed to fetch items", err)
     }
@@ -29,7 +31,7 @@ function App() {
 
   // useefeect to getAll items on page load
   useEffect(() => {
-    // fetchItems()
+    fetchItems()
   }, [])
 
   function reset() {
@@ -39,7 +41,7 @@ function App() {
   return (
     <div className="App">
       {/* showItem will toggle on/off multiple item view vs single*/}
-      {!showItem && <ItemsList fetchSingleItem={fetchSingleItem}/>}
+      {!showItem && <ItemsList data={items} fetchSingleItem={fetchSingleItem}/>}
       {/* pass props into item from fetchSingleItem func */}
       {showItem && <ItemDetailed/>}
       {showItem && <Button onClick={reset} color="primary" variant="contained" size="sizeLarge">Go back</Button>}
