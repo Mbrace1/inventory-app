@@ -22,6 +22,12 @@ app.get("/items", async (req, res) => {
     console.log(allItems);
     res.send(allItems)
 });
+app.get("/items/:itemid", async (req, res) => {
+    const userRequestId = req.params.itemid
+    const oneItem = await Item.findOne({where:{id:req.params.itemid}});
+    console.log(oneItem);
+    res.send(oneItem)
+});
 
 
 
