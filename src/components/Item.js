@@ -7,12 +7,13 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
 import './Item.css'
+import { yellow } from '@mui/material/colors';
 
 function Item(props) {
     console.log(props)
     
   return (
-    <Card elevation="6" sx={{height: 600, width: 300, m: "1em",  display: 'flex',  flexDirection: 'column', alignItems: "center", justifyContent: "space-around"}}>
+    <Card elevation="6" sx={{backgroundColor:"yellow", height: 600, width: 300, m: "1em",  display: 'flex',  flexDirection: 'column', alignItems: "center", justifyContent: "space-around"}}>
       <CardMedia
         component="img"
         height= "200px"
