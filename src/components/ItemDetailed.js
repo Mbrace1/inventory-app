@@ -8,7 +8,7 @@ import Typography from '@mui/material/Typography';
 
 
 function ItemDetailed(props) {
-  console.log(props)
+
 
   return (
     <Card elevation="6" sx={{ maxWidth: "80vw", minWidth: 300, mx: "auto", my: "1em" }}>
@@ -26,6 +26,7 @@ function ItemDetailed(props) {
           {props.item.description}
         </Typography>
       </CardContent>
+      {/* <button onClick={}></button>  to open the second form to update data*/}
     </Card>
   );
 }

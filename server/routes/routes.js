@@ -33,12 +33,12 @@ app.post("/items", async (req, res) => {
     res.send(req.body)
 })
 
-// app.delete("/items", async (req,res) => {
-//     req.body.destroy()
-//     res.send(req.body)
-// })
 
 
+app.put("/items", async (req, res) => {
+    await Item.update(req.body, { where: { id: req.params.id } })
+    res.sendStatus(200)
+})
 
 app.listen(3001, async () => {
     await seed()

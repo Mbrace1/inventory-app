@@ -9,13 +9,13 @@ import Typography from '@mui/material/Typography';
 import './Item.css'
 
 function Item(props) {
-    console.log(props)
-    
+  console.log(props)
+
   return (
-    <Card elevation="6" sx={{height: 600, width: 300, m: "1em",  display: 'flex',  flexDirection: 'column', alignItems: "center", justifyContent: "space-around"}}>
+    <Card elevation="6" sx={{ height: 600, width: 300, m: "1em", display: 'flex', flexDirection: 'column', alignItems: "center", justifyContent: "space-around" }}>
       <CardMedia
         component="img"
-        height= "200px"
+        height="200px"
         image={props.image}
         alt={props.title}
       />
@@ -24,10 +24,10 @@ function Item(props) {
           {props.title}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-            £{props.price}
+          £{props.price}
         </Typography>
       </CardContent>
-      <CardActions sx={{justifyContent: "center"}}>
+      <CardActions sx={{ justifyContent: "center" }}>
         <Button onClick={props.fetchSingleItem} data-id={props.id} size="small">Learn More</Button>
       </CardActions>
     </Card>

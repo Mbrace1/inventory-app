@@ -12,6 +12,7 @@ function App() {
   const [showItem, setShowItem] = useState(false)
   const [form, setForm] = useState(false)
   const [detailedItem, setDetailedItem] = useState({})
+  const [update, setUpdate] = useState(null)
 
 
   async function fetchItems() {
@@ -21,7 +22,6 @@ function App() {
         header: 'Access-Control-Allow-Origin: *'
       })
       const data = await response.json()
-      console.log(data)
       setItems(data)
     } catch (err) {
       console.log("failed to fetch items", err)
@@ -34,14 +34,34 @@ function App() {
       const response = await fetch(`http://localhost:3001/items/${id}`, {
         header: 'Access-Control-Allow-Origin: *'
       })
-      const data = await response.json()
-      console.log(data)
-      setDetailedItem(data)
+
     } catch (err) {
       console.log("failed to fetch items", err)
     }
     console.log("fetch item")
     setShowItem(true)
+  }
+
+  async function updateSingleItem(e) {
+    try {
+      const id = e.currentTarget.dataset.id
+      const response = await fetch(`http://localhost:3001/items/${id}`, {
+        header: 'Access-Control-Allow-Origin: *',
+        method: 'PUT',
+        body: JSON.stringify({
+          title: e.target.value,
+          price: e.target.value,
+          description: e.target.value,
+          image: e.target.value,
+          category: e.target.value,
+        })
+      })
+      const data = await response.json()
+      setUpdate(data)
+    }
+    catch (err) {
+      console.log('failed to fetch item', err)
+    }
   }
 
   // useefeect to getAll items on page load

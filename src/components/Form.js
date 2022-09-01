@@ -12,7 +12,7 @@ function Form(props) {
 
     async function addItem(event) {
         event.preventDefault()
-        const urlToGo = url ? url : "https://picsum.photos/seed/picsum/200/300" 
+        const urlToGo = url ? url : "https://picsum.photos/seed/picsum/200/300"
 
         const body = {
             title: title,
