@@ -11,16 +11,19 @@ function ItemDetailed(props) {
   console.log(props)
 
   return (
-    <Card elevation="6" sx={{ maxWidth: "80vw", minWidth: 300, mx: "auto", my: "1em" }}>
+    <Card elevation="6" sx={{ width: "300px", mx: "auto", my: "1em" }}>
       <CardMedia
         component="img"
-        height="140"
+        height="100%"
         image={props.item.image}
-        alt="title"// {props.title}
+        alt={props.item.title}
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           {props.item.title}
+        </Typography>
+        <Typography variant="body1" sx={{fontSize:"1.2em", fontWeight:"bold"}}>
+          £{props.item.price}
         </Typography>
         <Typography variant="body2" color="text.secondary">
           {props.item.description}
