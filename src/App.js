@@ -5,6 +5,7 @@ import ItemsList from './components/ItemsList'
 import Item from './components/Item'
 import ItemDetailed from './components/ItemDetailed'
 import Button from '@mui/material/Button';
+import { Navbar } from './components/navbar';
 
 function App() {
   const [items, setItems] = useState([])
@@ -51,6 +52,9 @@ function App() {
 
   return (
     <div className="App">
+      <div id='header'>
+        <Navbar></Navbar>
+      </div>
       {/* showItem will toggle on/off multiple item view vs single*/}
       {!showItem && <ItemsList data={items} fetchSingleItem={fetchSingleItem} />}
       {/* pass props into item from fetchSingleItem func */}
