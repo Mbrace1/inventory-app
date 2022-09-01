@@ -9,9 +9,11 @@ import Button from '@mui/material/Button';
 
 function App() {
   const [items, setItems] = useState([])
-  const [form, setForm] = useState(false)
   const [showItem, setShowItem] = useState(false)
+  const [form, setForm] = useState(false)
   const [detailedItem, setDetailedItem] = useState({})
+
+
   async function fetchItems() {
     reset()
     try {

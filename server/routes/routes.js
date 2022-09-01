@@ -1,9 +1,9 @@
 const express = require('express')
 const itemsRouter = express.Router()
-const {Item} = require('../models/items');
+const { Item } = require('../models/items');
 const app = express();
-const { seed } = require('../models/seed.js'); 
-const cors = require("cors"); 
+const { seed } = require('../models/seed.js');
+const cors = require("cors");
 
 //Allow CORS requests
 app.use(cors());
@@ -23,16 +23,19 @@ app.get("/items", async (req, res) => {
     res.send(allItems)
 });
 app.get("/items/:itemid", async (req, res) => {
-    const userRequestId = req.params.itemid
-    const oneItem = await Item.findOne({where:{id:req.params.itemid}});
+    const oneItem = await Item.findOne({ where: { id: req.params.itemid } });
     console.log(oneItem);
     res.send(oneItem)
 });
 
+app.post("/items", async (req, res) => {
+    console.log('What')
+    res.send('Hello World')
+})
 
 
 
-app.listen(3001, async ()=> {
+app.listen(3001, async () => {
     await seed()
     console.log("Server is up and listening at http://localhost:3001")
 });
