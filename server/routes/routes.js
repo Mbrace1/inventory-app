@@ -29,6 +29,16 @@ app.get("/items/:itemid", async (req, res) => {
     res.send(oneItem)
 });
 
+app.delete("/items", async (req,res) => {
+    const userRequestId = req.params.itemid
+    const oneItem = await Item.destroy({
+        where: {
+          slug: req.params.slug
+        }
+      });
+    res.send(oneItem)
+})
+
 
 
 
