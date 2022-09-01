@@ -60,14 +60,13 @@ function Form(props) {
             </label>
             <label>
                 Category:
-                <select onChange={(e) => setCategory(e.target.value)}>
+                <select >
                     <option value="Mens">Mens</option>
-                    <option value="Womens" >Womens</option>
-                    <option value="Jewellery" >Jewellery</option>
-                    <option value="Electronics" >Electronics</option>
+                    <option value="Womens">Womens</option>
+                    <option value="Jewellery">Jewellery</option>
+                    <option value="Electronics">Electronics</option>
                 </select>
             </label>
-            <button type='submit'>Add</button>
         </form>
     )
 }
