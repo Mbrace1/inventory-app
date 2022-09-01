@@ -33,6 +33,11 @@ app.post("/items", async (req, res) => {
     res.send(req.body)
 })
 
+// app.delete("/items", async (req,res) => {
+//     req.body.destroy()
+//     res.send(req.body)
+// })
+
 
 
 app.listen(3001, async () => {
