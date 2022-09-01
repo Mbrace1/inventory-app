@@ -29,8 +29,8 @@ app.get("/items/:itemid", async (req, res) => {
 });
 
 app.post("/items", async (req, res) => {
-    console.log('What')
-    res.send('Hello World')
+    Item.create(req.body)
+    res.send(req.body)
 })
 
 

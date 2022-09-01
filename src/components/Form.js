@@ -25,7 +25,7 @@ function Form(props) {
             const response = await fetch(`http://localhost:3001/items`, {
                 headers: { 'Content-Type': 'application/json' },
                 method: 'POST',
-                // body: JSON.stringify(body)
+                body: JSON.stringify(body)
             })
 
             const data = await response.json()
