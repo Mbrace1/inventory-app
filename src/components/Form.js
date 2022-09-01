@@ -12,12 +12,13 @@ function Form(props) {
 
     async function addItem(event) {
         event.preventDefault()
+        const urlToGo = url ? url : "https://picsum.photos/seed/picsum/200/300" 
 
         const body = {
             title: title,
             price: price,
             description: description,
-            url: url,
+            image: urlToGo,
             category: category
         }
 
@@ -37,6 +38,7 @@ function Form(props) {
         setPrice(null)
         setUrl('')
         setTitle('')
+        // also need to clear the inputs on form as well as state
     }
 
 
@@ -67,6 +69,7 @@ function Form(props) {
                     <option value="Electronics">Electronics</option>
                 </select>
             </label>
+            <button type="submit">submit</button>
         </form>
     )
 }
