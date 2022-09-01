@@ -3,11 +3,13 @@ import React, { useState, useEffect } from 'react'
 import './App.css';
 import ItemsList from './components/ItemsList'
 import Item from './components/Item'
+import Form from './components/Form';
 import ItemDetailed from './components/ItemDetailed'
 import Button from '@mui/material/Button';
 
 function App() {
   const [items, setItems] = useState([])
+  const [form, setForm] = useState(false)
   const [showItem, setShowItem] = useState(false)
   const [detailedItem, setDetailedItem] = useState({})
   async function fetchItems() {
@@ -51,6 +53,11 @@ function App() {
 
   return (
     <div className="App">
+
+      <button onClick={() => {
+        setForm(!form)
+      }}>Add An Item</button>
+      {form && <Form />}
       {/* showItem will toggle on/off multiple item view vs single*/}
       {!showItem && <ItemsList data={items} fetchSingleItem={fetchSingleItem} />}
       {/* pass props into item from fetchSingleItem func */}
