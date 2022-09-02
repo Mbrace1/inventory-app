@@ -85,6 +85,7 @@ function App() {
       {/* pass props into item from fetchSingleItem func */}
       {showItem && <ItemDetailed item={detailedItem} />}
       {showItem && <Button onClick={reset} color="primary" variant="contained" size="sizeLarge">Go back</Button>}
+
     </div>
   );
 }
